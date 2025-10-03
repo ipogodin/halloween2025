@@ -35,25 +35,8 @@
   }
   
   function handleCountMeIn() {
-    // Create calendar event
-    const eventDetails = {
-      title: t('site.title'),
-      start: new Date('2025-10-25T14:00:00'),
-      end: new Date('2025-10-25T20:00:00'),
-      description: t('site.description') + ' Location: 12626 NE 157th St, Woodinville, WA',
-      location: '12626 NE 157th St, Woodinville, WA'
-    };
-    
-    // Format dates for calendar URL
-    const formatDate = (date) => {
-      return date.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z';
-    };
-    
-    // Create Google Calendar URL
-    const googleCalendarUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent(eventDetails.title)}&dates=${formatDate(eventDetails.start)}/${formatDate(eventDetails.end)}&details=${encodeURIComponent(eventDetails.description)}&location=${encodeURIComponent(eventDetails.location)}`;
-    
-    // Open calendar in new tab
-    window.open(googleCalendarUrl, '_blank');
+    // Open the Google Calendar invitation link
+    window.open('https://calendar.app.google/nhNbSmueiRvTkH8U6', '_blank');
     
     // Create celebration pumpkins
     for (let i = 0; i < 5; i++) {
