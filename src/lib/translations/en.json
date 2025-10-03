@@ -1,0 +1,92 @@
+{
+  "site": {
+    "title": "The Cool Hall Party 2025",
+    "description": "Join us for a spooktacular Halloween celebration!",
+    "tagline": "Join us for a night of frightful fun!"
+  },
+  "hero": {
+    "title": "The Cool Hall Party",
+    "subtitle": "Halloween Party 2025",
+    "downloadInvitation": "Download Invitation PDF"
+  },
+  "eventDetails": {
+    "when": "When",
+    "where": "Where",
+    "dressCode": "Dress Code",
+    "date": "October 25th, 2025",
+    "time": "2:00 PM - 8:00 PM",
+    "address": "12626 NE 157th St",
+    "city": "Woodinville, WA",
+    "costumeRequired": "Costume Required!",
+    "prizeNote": "Most creative wins a prize"
+  },
+  "layout": {
+    "title": "Party Layout & Studios",
+    "simplePlan": "Simple Plan 📍",
+    "detailedPlan": "Detailed Plan 🗺️",
+    "studioBee": "🐝 Studio Bee (Backyard)",
+    "studioBeeDesc": "Heated kids cinema space with safety rules. Perfect for Halloween movies!",
+    "studioBeeWarning": "⚠️ No sitting on rails, no fights or violence",
+    "studioBoo": "👻 Studio Boo (Frontyard)",
+    "studioBooDesc": "Heated adult space with campfire, chairs, and tent. Also includes heated RV for games!",
+    "studioBooNote": "🔥 Campfire + Board Games Available",
+    "studioGee": "🎪 Studio Gee (Garage)",
+    "studioGeeDesc": "Heated food/booze/couch/board games space. Main food station!",
+    "studioGeeNote": "🍕 Food Tables: Vegetarian & Non-Vegetarian"
+  },
+  "schedule": {
+    "title": "Party Schedule",
+    "2pm": "🎬 Party Starts!",
+    "2pmDesc": "Halloween movies for kids, guests get comfortable, bring your food to share!",
+    "3pm": "📸 Group Photo Time",
+    "3pmDesc": "Everyone gather for the epic group shot! Snack & booze consumption continues.",
+    "4pm": "🎭 Show of Talented Monsters",
+    "4pmDesc": "MANDATORY PARTICIPATION! At least one person per household must perform!",
+    "4pmIdeas": "Ideas: Play music (piano provided), dance, joke, poem, interesting fact, news",
+    "5pm": "🎉 Active Partying",
+    "5pmDesc": "Movies continue, full party mode activated!",
+    "6pm": "🔥 S'mores Time!",
+    "6pmDesc": "Campfire treats and continued festivities. Left over snacks available.",
+    "7pm": "🚪 Think About Your Escape Plan",
+    "7pmDesc": "Start of fasting window. Maybe the last shot of tequila... maybe 🥃",
+    "730pm": "🏃‍♂️ START TO EXIT",
+    "730pmDesc": "Time to start wrapping up and heading out!",
+    "8pm": "🚫 PARTY ENDS",
+    "8pmDesc": "No way you're still here...",
+    "810pm": "🧟‍♂️ ZOMBIE ATTACK!",
+    "810pmDesc": "Anyone still here faces the zombie apocalypse!"
+  },
+  "requirements": {
+    "title": "Party Requirements & Rules",
+    "costumeTitle": "Costume Required!",
+    "costumeDesc": "Some sort of costume/character is MANDATORY!",
+    "foodTitle": "Bring Food",
+    "foodDesc": "Potluck style - bring food/snacks/drinks to share",
+    "talentTitle": "Talent Show",
+    "talentDesc": "At least one person per household MUST participate in the show!",
+    "outdoorTitle": "Outdoor Policy",
+    "outdoorDesc": "Party is mostly OUTDOOR (heated spaces). Bring blankets & waterproof shoes!",
+    "healthTitle": "Health Policy",
+    "healthDesc": "Stay home if ill or recent COVID contact. Only infants/toddlers allowed inside.",
+    "optionalTitle": "Optional Items",
+    "optionalDesc": "Blankets, camp chairs, board games",
+    "moodTitle": "Good Mood!",
+    "moodDesc": "Bring your positive vibes and Halloween spirit!"
+  },
+  "rsvp": {
+    "title": "Will you dare to join us?",
+    "plusOne": "If you are invited, feel free to take +1!",
+    "deadline": "RSVP by October 23rd",
+    "countMeIn": "👻 Count Me In!",
+    "maybeLater": "🎃 Maybe Later",
+    "contact": "Contact the hosts for details",
+    "important": "🚨 Important:",
+    "importantText": "Read all party regulations above before confirming!",
+    "calendarNote": "📅 Clicking \"Count Me In\" will open Google Calendar to add this event!",
+    "downloadQuestion": "Want to save the invitation?",
+    "downloadPdf": "📄 Download PDF Invitation"
+  },
+  "ui": {
+    "language": "Language"
+  }
+}

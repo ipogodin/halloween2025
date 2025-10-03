@@ -2,10 +2,19 @@
   import '@fontsource/creepster';
   import '@fontsource/inter';
   import { onMount } from 'svelte';
+  import { currentLanguage, languages, translate } from '$lib/i18n.js';
   
   let pumpkinCount = 0;
   let batCount = 0;
   let showDetailedPlan = true;
+  
+  // Reactive translation function
+  $: t = (key) => translate(key, $currentLanguage);
+  
+  // Language switcher
+  function switchLanguage(lang) {
+    currentLanguage.set(lang);
+  }
   
   onMount(() => {
     // Animate floating elements
@@ -28,10 +37,10 @@
   function handleCountMeIn() {
     // Create calendar event
     const eventDetails = {
-      title: 'The cool hall Party 2025',
+      title: t('site.title'),
       start: new Date('2025-10-25T14:00:00'),
       end: new Date('2025-10-25T20:00:00'),
-      description: 'Halloween party with costume requirement, talent show, and spooky fun! Location: 12626 NE 157th St, Woodinville, WA',
+      description: t('site.description') + ' Location: 12626 NE 157th St, Woodinville, WA',
       location: '12626 NE 157th St, Woodinville, WA'
     };
     
@@ -64,8 +73,8 @@
 </script>
 
 <svelte:head>
-  <title>Young Pogodins Halloween Party 2025</title>
-  <meta name="description" content="Join us for a spooktacular Halloween celebration!" />
+  <title>{t('site.title')}</title>
+  <meta name="description" content={t('site.description')} />
 </svelte:head>
 
 <main class="halloween-party">
@@ -79,16 +88,29 @@
     {/each}
   </div>
 
+  <!-- Language Switcher -->
+  <div class="language-switcher">
+    <span class="lang-label">{t('ui.language')}:</span>
+    {#each Object.entries(languages) as [code, name]}
+      <button 
+        class="lang-btn {$currentLanguage === code ? 'active' : ''}"
+        on:click={() => switchLanguage(code)}
+      >
+        {name}
+      </button>
+    {/each}
+  </div>
+
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
       <h1 class="spooky-title">
-        🎃 The CooL Hall Party 🎃
+        🎃 {t('hero.title')} 🎃
       </h1>
       <h2 class="main-title">
-        Halloween Party 2025
+        {t('hero.subtitle')}
       </h2>
-      <p class="tagline">Join us for a night of frightful fun!</p>
+      <p class="tagline">{t('site.tagline')}</p>
       
       <div class="pumpkin-decoration">
         <span class="pumpkin">🎃</span>
@@ -98,7 +120,7 @@
       
       <div class="invitation-download">
         <a href="/coolHallParty2025.pdf" download="Halloween_Party_2025_Invitation.pdf" class="download-btn">
-          📄 Download Invitation PDF
+          📄 {t('hero.downloadInvitation')}
         </a>
       </div>
     </div>
@@ -110,23 +132,23 @@
       <div class="details-grid">
         <div class="detail-card">
           <div class="icon">📅</div>
-          <h3>When</h3>
-          <p>October 25th, 2025</p>
-          <p class="time">2:00 PM - 8:00 PM</p>
+          <h3>{t('eventDetails.when')}</h3>
+          <p>{t('eventDetails.date')}</p>
+          <p class="time">{t('eventDetails.time')}</p>
         </div>
         
         <div class="detail-card">
           <div class="icon">📍</div>
-          <h3>Where</h3>
-          <p>12626 NE 157th St</p>
-          <p class="address">Woodinville, WA</p>
+          <h3>{t('eventDetails.where')}</h3>
+          <p>{t('eventDetails.address')}</p>
+          <p class="address">{t('eventDetails.city')}</p>
         </div>
         
         <div class="detail-card">
           <div class="icon">👻</div>
-          <h3>Dress Code</h3>
-          <p>Costume Required!</p>
-          <p class="note">Most creative wins a prize</p>
+          <h3>{t('eventDetails.dressCode')}</h3>
+          <p>{t('eventDetails.costumeRequired')}</p>
+          <p class="note">{t('eventDetails.prizeNote')}</p>
         </div>
       </div>
     </div>
@@ -135,19 +157,19 @@
   <!-- Party Layout Section -->
   <section class="party-layout">
     <div class="container">
-      <h2 class="section-title">Party Layout & Studios</h2>
+      <h2 class="section-title">{t('layout.title')}</h2>
       <div class="layout-toggle">
          <button 
           class="toggle-btn {showDetailedPlan ? 'active' : ''}" 
           on:click={() => showDetailedPlan = true}
         >
-          Detailed Plan 🗺️
+          {t('layout.detailedPlan')}
         </button>
         <button 
           class="toggle-btn {!showDetailedPlan ? 'active' : ''}" 
           on:click={() => showDetailedPlan = false}
         >
-          Simple Plan 📍
+          {t('layout.simplePlan')}
         </button>
       </div>
       
@@ -161,54 +183,55 @@
       
       <div class="studios-grid">
         <div class="studio-card">
-          <h3>🐝 Studio Bee (Backyard)</h3>
-          <p>Heated kids cinema space with safety rules. Perfect for Halloween movies!</p>
-          <div class="warning">⚠️ No sitting on rails, no fights or violence</div>
+          <h3>{t('layout.studioBee')}</h3>
+          <p>{t('layout.studioBeeDesc')}</p>
+          <div class="warning">{t('layout.studioBeeWarning')}</div>
         </div>
         
         <div class="studio-card">
-          <h3>👻 Studio Boo (Frontyard)</h3>
-          <p>Heated adult space with campfire, chairs, and tent. Also includes heated RV for games!</p>
-          <div class="note">🔥 Campfire + Board Games Available</div>
+          <h3>{t('layout.studioBoo')}</h3>
+          <p>{t('layout.studioBooDesc')}</p>
+          <div class="note">{t('layout.studioBooNote')}</div>
         </div>
         
         <div class="studio-card">
-          <h3>🎪 Studio Gee (Garage)</h3>
-          <p>Heated food/booze/couch/board games space. Main food station!</p>
-          <div class="note">🍕 Food Tables: Vegetarian & Non-Vegetarian</div>
+          <h3>{t('layout.studioGee')}</h3>
+          <p>{t('layout.studioGeeDesc')}</p>
+          <div class="note">{t('layout.studioGeeNote')}</div>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Detailed Agenda Section -->
+    <!-- Detailed Agenda Section -->
   <section class="agenda">
     <div class="container">
-      <h2 class="section-title">Party Schedule</h2>
+      <h2 class="section-title">{t('schedule.title')}</h2>
       <div class="agenda-timeline">
         <div class="timeline-item">
           <div class="timeline-time">2:00 PM</div>
           <div class="timeline-content">
-            <h3>🎬 Party Starts!</h3>
-            <p>Halloween movies for kids, guests get comfortable, bring your food to share!</p>
+            <h3>{t('schedule.2pm')}</h3>
+            <p>{t('schedule.2pmDesc')}</p>
           </div>
         </div>
         
         <div class="timeline-item">
           <div class="timeline-time">3:00 PM</div>
           <div class="timeline-content">
-            <h3>📸 Group Photo Time</h3>
-            <p>Everyone gather for the epic group shot! Snack & booze consumption continues.</p>
+            <h3>{t('schedule.3pm')}</h3>
+            <p>{t('schedule.3pmDesc')}</p>
           </div>
         </div>
         
         <div class="timeline-item highlight">
           <div class="timeline-time">4:00 PM</div>
           <div class="timeline-content">
-            <h3>🎭 Show of Talented Monsters</h3>
-            <p><strong>MANDATORY PARTICIPATION!</strong> At least one person per household must perform!</p>
+            <h3>{t('schedule.4pm')}</h3>
+            <p><strong>{t('schedule.4pmDesc')}</strong></p>
             <div class="performance-ideas">
-              Ideas: Play music (piano provided), dance, joke, poem, interesting fact, news
+              {t('schedule.4pmIdeas')}
             </div>
           </div>
         </div>
@@ -216,48 +239,48 @@
         <div class="timeline-item">
           <div class="timeline-time">5:00 PM</div>
           <div class="timeline-content">
-            <h3>🎉 Active Partying</h3>
-            <p>Movies continue, full party mode activated!</p>
+            <h3>{t('schedule.5pm')}</h3>
+            <p>{t('schedule.5pmDesc')}</p>
           </div>
         </div>
         
         <div class="timeline-item">
           <div class="timeline-time">6:00 PM</div>
           <div class="timeline-content">
-            <h3>🔥 S'mores Time!</h3>
-            <p>Campfire treats and continued festivities. Left over snacks available.</p>
+            <h3>{t('schedule.6pm')}</h3>
+            <p>{t('schedule.6pmDesc')}</p>
           </div>
         </div>
         
         <div class="timeline-item warning">
           <div class="timeline-time">7:00 PM</div>
           <div class="timeline-content">
-            <h3>🚪 Think About Your Escape Plan</h3>
-            <p>Start of fasting window. Maybe the last shot of tequila... maybe 🥃</p>
+            <h3>{t('schedule.7pm')}</h3>
+            <p>{t('schedule.7pmDesc')}</p>
           </div>
         </div>
         
         <div class="timeline-item danger">
           <div class="timeline-time">7:30 PM</div>
           <div class="timeline-content">
-            <h3>🏃‍♂️ START TO EXIT</h3>
-            <p>Time to start wrapping up and heading out!</p>
+            <h3>{t('schedule.730pm')}</h3>
+            <p>{t('schedule.730pmDesc')}</p>
           </div>
         </div>
         
         <div class="timeline-item danger">
           <div class="timeline-time">8:00 PM</div>
           <div class="timeline-content">
-            <h3>🚫 PARTY ENDS</h3>
-            <p>No way you're still here...</p>
+            <h3>{t('schedule.8pm')}</h3>
+            <p>{t('schedule.8pmDesc')}</p>
           </div>
         </div>
         
         <div class="timeline-item zombie">
           <div class="timeline-time">8:10 PM</div>
           <div class="timeline-content">
-            <h3>🧟‍♂️ ZOMBIE ATTACK!</h3>
-            <p>Anyone still here faces the zombie apocalypse!</p>
+            <h3>{t('schedule.810pm')}</h3>
+            <p>{t('schedule.810pmDesc')}</p>
           </div>
         </div>
       </div>
@@ -267,48 +290,48 @@
   <!-- Requirements Section -->
   <section class="requirements">
     <div class="container">
-      <h2 class="section-title">Party Requirements & Rules</h2>
+      <h2 class="section-title">{t('requirements.title')}</h2>
       <div class="requirements-grid">
         <div class="requirement-card mandatory">
           <div class="req-icon">👗</div>
-          <h3>Costume Required!</h3>
-          <p>Some sort of costume/character is MANDATORY!</p>
+          <h3>{t('requirements.costumeTitle')}</h3>
+          <p>{t('requirements.costumeDesc')}</p>
         </div>
         
         <div class="requirement-card mandatory">
           <div class="req-icon">🍕</div>
-          <h3>Bring Food</h3>
-          <p>Potluck style - bring food/snacks/drinks to share</p>
+          <h3>{t('requirements.foodTitle')}</h3>
+          <p>{t('requirements.foodDesc')}</p>
         </div>
         
         <div class="requirement-card mandatory">
           <div class="req-icon">🎭</div>
-          <h3>Talent Show</h3>
-          <p>At least one person per household MUST participate in the show!</p>
+          <h3>{t('requirements.talentTitle')}</h3>
+          <p>{t('requirements.talentDesc')}</p>
         </div>
         
         <div class="requirement-card outdoor">
           <div class="req-icon">🌡️</div>
-          <h3>Outdoor Policy</h3>
-          <p>Party is mostly OUTDOOR (heated spaces). Bring blankets & waterproof shoes!</p>
+          <h3>{t('requirements.outdoorTitle')}</h3>
+          <p>{t('requirements.outdoorDesc')}</p>
         </div>
         
         <div class="requirement-card health">
           <div class="req-icon">😷</div>
-          <h3>Health Policy</h3>
-          <p>Stay home if ill or recent COVID contact. Only infants/toddlers allowed inside.</p>
+          <h3>{t('requirements.healthTitle')}</h3>
+          <p>{t('requirements.healthDesc')}</p>
         </div>
         
         <div class="requirement-card optional">
           <div class="req-icon">🎒</div>
-          <h3>Optional Items</h3>
-          <p>Blankets, camp chairs, board games</p>
+          <h3>{t('requirements.optionalTitle')}</h3>
+          <p>{t('requirements.optionalDesc')}</p>
         </div>
         
         <div class="requirement-card mood">
           <div class="req-icon">😊</div>
-          <h3>Good Mood!</h3>
-          <p>Bring your positive vibes and Halloween spirit!</p>
+          <h3>{t('requirements.moodTitle')}</h3>
+          <p>{t('requirements.moodDesc')}</p>
         </div>
       </div>
     </div>
@@ -318,25 +341,25 @@
   <section class="rsvp">
     <div class="container">
       <div class="rsvp-card">
-        <h2>Will you dare to join us?</h2>
-        <p>If you are invited, feel free to take +1!</p>
-        <p class="rsvp-deadline">RSVP by October 23rd</p>
+        <h2>{t('rsvp.title')}</h2>
+        <p>{t('rsvp.plusOne')}</p>
+        <p class="rsvp-deadline">{t('rsvp.deadline')}</p>
         <div class="rsvp-buttons">
-          <button class="btn-primary" on:click={handleCountMeIn}>👻 Count Me In!</button>
-          <button class="btn-secondary" on:click={handleMaybeLater}>🎃 Maybe Later</button>
+          <button class="btn-primary" on:click={handleCountMeIn}>{t('rsvp.countMeIn')}</button>
+          <button class="btn-secondary" on:click={handleMaybeLater}>{t('rsvp.maybeLater')}</button>
         </div>
-        <p class="contact">Contact the hosts for details</p>
+        <p class="contact">{t('rsvp.contact')}</p>
         <div class="important-note">
-          <strong>🚨 Important:</strong> Read all party regulations above before confirming!
+          <strong>{t('rsvp.important')}</strong> {t('rsvp.importantText')}
         </div>
         <div class="calendar-note">
-          <small>📅 Clicking "Count Me In" will open Google Calendar to add this event!</small>
+          <small>{t('rsvp.calendarNote')}</small>
         </div>
         
         <div class="pdf-download-section">
-          <p>Want to save the invitation?</p>
+          <p>{t('rsvp.downloadQuestion')}</p>
           <a href="/coolHallParty2025.pdf" download="Halloween_Party_2025_Invitation.pdf" class="download-btn secondary">
-            📄 Download PDF Invitation
+            {t('rsvp.downloadPdf')}
           </a>
         </div>
       </div>
@@ -1141,6 +1164,52 @@
       width: 100%;
       max-width: 280px;
       font-size: 1rem;
+    }
+  }
+
+  /* Language Switcher Styles */
+  .language-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ff8c00;
+  }
+
+  .lang-label {
+    color: #fff;
+    font-size: 0.9rem;
+    font-weight: bold;
+  }
+
+  .lang-btn {
+    background: transparent;
+    border: 1px solid #ff8c00;
+    color: #ff8c00;
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .lang-btn:hover,
+  .lang-btn.active {
+    background: #ff8c00;
+    color: #000;
+  }
+
+  @media (max-width: 768px) {
+    .language-switcher {
+      position: static;
+      margin-bottom: 1rem;
+      justify-content: center;
     }
   }
 </style>
