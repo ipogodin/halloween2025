@@ -302,39 +302,13 @@
         <div class="requirement-card optional">
           <div class="req-icon">🎒</div>
           <h3>Optional Items</h3>
-          <p>Blankets, camp chairs, board games, good mood!</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Activities Section -->
-  <section class="activities">
-    <div class="container">
-      <h2 class="section-title">Spooky Activities</h2>
-      <div class="activities-grid">
-        <div class="activity-card" on:click={createPumpkin}>
-          <div class="activity-icon">🎃</div>
-          <h3>Pumpkin Carving</h3>
-          <p>Create your masterpiece!</p>
+          <p>Blankets, camp chairs, board games</p>
         </div>
         
-        <div class="activity-card" on:click={createBat}>
-          <div class="activity-icon">🦇</div>
-          <h3>Haunted Games</h3>
-          <p>Thrilling party games</p>
-        </div>
-        
-        <div class="activity-card">
-          <div class="activity-icon">🍭</div>
-          <h3>Trick or Treat</h3>
-          <p>Sweet surprises await</p>
-        </div>
-        
-        <div class="activity-card">
-          <div class="activity-icon">🎵</div>
-          <h3>Monster Music</h3>
-          <p>Dance to spooky beats</p>
+        <div class="requirement-card mood">
+          <div class="req-icon">😊</div>
+          <h3>Good Mood!</h3>
+          <p>Bring your positive vibes and Halloween spirit!</p>
         </div>
       </div>
     </div>
@@ -1017,6 +991,11 @@
   .requirement-card.optional {
     background: linear-gradient(145deg, #2a4a00, #1a2a00);
     border: 2px solid #44ff44;
+  }
+
+  .requirement-card.mood {
+    background: linear-gradient(145deg, #4a3a00, #2a2000);
+    border: 2px solid #ffaa44;
   }
 
   .req-icon {
