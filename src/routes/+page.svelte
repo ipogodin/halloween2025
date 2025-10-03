@@ -5,7 +5,7 @@
   
   let pumpkinCount = 0;
   let batCount = 0;
-  let showDetailedPlan = false;
+  let showDetailedPlan = true;
   
   onMount(() => {
     // Animate floating elements
