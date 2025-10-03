@@ -95,6 +95,12 @@
         <span class="spider">🕷️</span>
         <span class="pumpkin">🎃</span>
       </div>
+      
+      <div class="invitation-download">
+        <a href="/Young Pogodins 2025 Halloween party INVITATION.pdf" download="Halloween_Party_2025_Invitation.pdf" class="download-btn">
+          📄 Download Invitation PDF
+        </a>
+      </div>
     </div>
   </section>
 
@@ -351,6 +357,13 @@
         </div>
         <div class="calendar-note">
           <small>📅 Clicking "Count Me In" will open Google Calendar to add this event!</small>
+        </div>
+        
+        <div class="pdf-download-section">
+          <p>Want to save the invitation?</p>
+          <a href="/Young Pogodins 2025 Halloween party INVITATION.pdf" download="Halloween_Party_2025_Invitation.pdf" class="download-btn secondary">
+            📄 Download PDF Invitation
+          </a>
         </div>
       </div>
     </div>
@@ -1084,6 +1097,71 @@
 
     .toggle-btn {
       width: 200px;
+    }
+  }
+
+  /* Download Button Styles */
+  .invitation-download {
+    margin: 2rem 0;
+  }
+
+  .download-btn {
+    display: inline-block;
+    background: linear-gradient(45deg, #9370db, #6a5acd);
+    color: #fff;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(147, 112, 219, 0.3);
+    border: 2px solid transparent;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .download-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(147, 112, 219, 0.5);
+    background: linear-gradient(45deg, #8a2be2, #9370db);
+  }
+
+  .download-btn:active {
+    transform: translateY(-1px) scale(0.98);
+  }
+
+  .download-btn.secondary {
+    background: transparent;
+    color: #9370db;
+    border: 2px solid #9370db;
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+
+  .download-btn.secondary:hover {
+    background: #9370db;
+    color: #fff;
+    transform: translateY(-3px);
+  }
+
+  .pdf-download-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 140, 0, 0.3);
+  }
+
+  .pdf-download-section p {
+    color: #cccccc;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  @media (max-width: 768px) {
+    .download-btn {
+      width: 100%;
+      max-width: 280px;
+      font-size: 1rem;
     }
   }
 </style>
