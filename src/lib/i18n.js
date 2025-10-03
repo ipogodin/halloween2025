@@ -1,17 +1,20 @@
 import { writable } from 'svelte/store';
 import en from './translations/en.json';
 import uk from './translations/uk.json';
+import be from './translations/be.json';
 
 // Available languages
 export const languages = {
   en: 'English',
-  uk: 'Українська'
+  uk: 'Українська',
+  be: 'Беларуская'
 };
 
 // Translation data
 const translations = {
   en,
-  uk
+  uk,
+  be
 };
 
 // Current language store
