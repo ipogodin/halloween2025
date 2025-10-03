@@ -28,7 +28,7 @@
   function handleCountMeIn() {
     // Create calendar event
     const eventDetails = {
-      title: 'Young Pogodins Halloween Party 2025',
+      title: 'The cool hall Party 2025',
       start: new Date('2025-10-25T14:00:00'),
       end: new Date('2025-10-25T20:00:00'),
       description: 'Halloween party with costume requirement, talent show, and spooky fun! Location: 12626 NE 157th St, Woodinville, WA',
@@ -83,7 +83,7 @@
   <section class="hero">
     <div class="hero-content">
       <h1 class="spooky-title">
-        🎃 Young Pogodins 🎃
+        🎃 The CooL Hall Party 🎃
       </h1>
       <h2 class="main-title">
         Halloween Party 2025
@@ -97,7 +97,7 @@
       </div>
       
       <div class="invitation-download">
-        <a href="/Young Pogodins 2025 Halloween party INVITATION.pdf" download="Halloween_Party_2025_Invitation.pdf" class="download-btn">
+        <a href="/coolHallParty2025.pdf" download="Halloween_Party_2025_Invitation.pdf" class="download-btn">
           📄 Download Invitation PDF
         </a>
       </div>
@@ -137,17 +137,17 @@
     <div class="container">
       <h2 class="section-title">Party Layout & Studios</h2>
       <div class="layout-toggle">
+         <button 
+          class="toggle-btn {showDetailedPlan ? 'active' : ''}" 
+          on:click={() => showDetailedPlan = true}
+        >
+          Detailed Plan 🗺️
+        </button>
         <button 
           class="toggle-btn {!showDetailedPlan ? 'active' : ''}" 
           on:click={() => showDetailedPlan = false}
         >
           Simple Plan 📍
-        </button>
-        <button 
-          class="toggle-btn {showDetailedPlan ? 'active' : ''}" 
-          on:click={() => showDetailedPlan = true}
-        >
-          Detailed Plan 🗺️
         </button>
       </div>
       
@@ -335,7 +335,7 @@
         
         <div class="pdf-download-section">
           <p>Want to save the invitation?</p>
-          <a href="/Young Pogodins 2025 Halloween party INVITATION.pdf" download="Halloween_Party_2025_Invitation.pdf" class="download-btn secondary">
+          <a href="/coolHallParty2025.pdf" download="Halloween_Party_2025_Invitation.pdf" class="download-btn secondary">
             📄 Download PDF Invitation
           </a>
         </div>
